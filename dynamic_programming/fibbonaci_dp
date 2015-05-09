@@ -1,0 +1,48 @@
+/*
+Arisen in vain to a life,
+Bleeding inner to suffer with time.
+Endlessly lost and still searching
+For something, someday.
+ 
+Obsession & deceit
+To burn a mark for a lifetime.
+Boundaries to brake,
+Reached from the edge of time.
+To rebuild the past
+For something that will everlast.
+Just searching for to find itself
+In still-motion.
+ 
+For to hope,
+Whenever to find a closure,
+Find itself in still-motion..
+ 
+Get closer,
+Closer to your own faith.
+ 
+Serve the frail mind,
+Escape through the lifetime
+To glance for your dismal youth.
+ 
+Get closer,
+Closer to your own faith.
+*/
+
+#include<stdio.h>
+ 
+int fib(int n) {
+int f[n+1];
+int i;
+f[0] = 0;
+f[1] = 1;
+for (i = 2; i <= n; i++)
+  f[i] = f[i-1] + f[i-2];
+return f[n];
+}
+ 
+int main () {
+  int n = 9;
+  printf("%d", fib(n));
+  getchar();
+  return 0;
+}
