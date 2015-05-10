@@ -1,0 +1,116 @@
+
+/*
+--------------------------------------------
+Arisen in vain to a life,
+Bleeding inner to suffer with time.
+Endlessly lost and still searching
+For something, someday.
+ 
+Obsession & deceit
+To burn a mark for a lifetime.
+Boundaries to brake,
+Reached from the edge of time.
+To rebuild the past
+For something that will everlast.
+Just searching for to find itself
+In still-motion.
+ 
+For to hope,
+Whenever to find a closure,
+Find itself in still-motion..
+ 
+Get closer,
+Closer to your own faith.
+ 
+Serve the frail mind,
+Escape through the lifetime
+To glance for your dismal youth.
+ 
+Get closer,
+Closer to your own faith.
+------------------------------------------
+
+Explanation:
+We define A(i,j) to be the optimal solution that can be obtained
+using only the first i items, with maximum allowed total weight of j. 
+Say there are n paintings with weights w1, ..., wn and market values v1, ..., vn. Define A(i,j) as 
+the maximum value that can be attained from considering only the 
+first i items weighting at most j pounds as follows.
+Obviously A(0,j) = 0 and A(i,0) = 0 for any i ≤ n and j ≤ W. If wi > j then A(i,j) = A(i-1, j) since 
+we cannot include the ith item. If, however, wi ≤ j then A(i,j) 
+then we have a choice: include the ith item or not. 
+If we do not include it then the value will be A(i-1, j). 
+If we do include it, however, the value will be vi + A(i-1, j - wi).
+Which choice should we make? Well, whichever is larger, i.e., the maximum of the two.
+So, the recurrence relation is :
+-------------------------------------------------------
+
+A(i,j) = 0 				if i=0 or j=0
+A(i,j) = A(i-1,j) 			if wi>j
+A(i,j) = max{A(i-1,j),vi+A(i-1,j-wi)} 	if wi<=j
+-------------------------------------------------------
+*/
+
+
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+int main()
+{
+	int n,w;
+	while(1)
+	{
+		cin>>n;
+		vector<int> val(n,-1),weight(n,0);
+		
+		for(int i=0;i<n;i++)
+			cin>>val[i];
+		for(int i=0;i<n;i++)
+			cin>>weight[i];
+		
+		cin>>w;
+		
+		vector< vector<int> > arr((n+1),vector<int> (w+1));
+		
+		for(int i=0;i<=n;i++)
+			for(int j=0;j<w;j++)
+				arr[i][j]=-1;
+		
+		//For infinite number of items of each value
+		
+		/*
+		vector<int> arr(w+1,-1);
+		arr[0]=0;
+		
+		for(int i=1;i<=w;i++)
+		{
+			arr[i]=arr[i-1];
+		
+			for(int j=0;j<n;j++)
+			{
+				if((i-weight[j])>=0&&arr[i-weight[j]]>=0&&(arr[i-weight[j]]+val[j])>arr[i])
+					arr[i]=arr[i-weight[j]]+val[j];
+			}
+		}
+		*/
+		
+		for(int i=0;i<=n;i++)
+			for(int j=0;j<=w;j++)
+			{
+				if(i==0||j==0)
+					arr[i][j]=0;
+					
+				else if(weight[i-1]<=j)
+					arr[i][j]=max(arr[i-1][j],arr[i-1][j-weight[i-1]]+val[i-1]);
+					
+				else
+					arr[i][j]=arr[i-1][j];
+			}
+		
+		for(int i=0;i<=n;i++)
+			for(int j=0;j<=w;j++)
+				cout<<arr[i][j]<<" ";
+	}
+}
