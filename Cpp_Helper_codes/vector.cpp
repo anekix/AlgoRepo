@@ -141,5 +141,13 @@ main()
    V.shrink_to_fit();
    cout << "Current capacity of V = " << V.capacity() << endl;
    //------------------------------------------
+   
+   //Appending two vectors together------------
+   vector<int> a;
+   vector<int> b;
+   a.push_back(20); a.push_back(40);
+   b.push_back(60); b.push_back(60);
+   a.insert(a.end(), b.begin(), b.end());
+   //------------------------------------------
 
 }
