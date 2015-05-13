@@ -3,7 +3,7 @@
 #include <vector>
 
 using namespace std;
-vector<string> instersection(vector<string> &v1, vector<string> &v2)
+vector<string> union(vector<string> &v1, vector<string> &v2)
 {
 
     vector<string> v3;
@@ -22,7 +22,7 @@ int main()
     std::vector<string> v1 {"a","b","c"};
     std::vector<string> v2 {"b","c","d","e"};
 
-    auto v3 = instersection(v1, v2);
+    auto v3 = union(v1, v2);
 
 
     for(string n : v3)
