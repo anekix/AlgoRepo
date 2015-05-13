@@ -90,7 +90,44 @@ main()
    cout << endl;
    cout<<TT.size() <<endl;
    //------------------------------------------
+   
+   //Erasing in vector-------------------------
+    vector <int> vec;
+    vector <int>::iterator pos;
 
-   ///swap(SS[0], SS[2]);
+    vec.push_back(10);
+    vec.push_back(20);
+    vec.push_back(30);
+    vec.push_back(40);
+    vec.push_back(50);
+
+    cout << "Capacity = " << vec.capacity() << endl;
+    cout << "vec =";
+    for (pos = vec.begin(); pos != vec.end(); ++pos)
+    {
+        cout << " " << *pos;
+    }        
+    cout << endl;
+
+    vec.erase(vec.begin());
+    cout << "vec = ";
+    for (pos = vec.begin(); pos != vec.end(); ++pos)
+    {
+        cout << " " << *pos;
+    }
+    cout << endl;
+
+    vec.erase(vec.begin() + 1, vec.begin() + 3);
+    cout << "vec = ";
+    for (pos = vec.begin(); pos != vec.end(); ++pos)
+    {
+        cout << " " << *pos;
+    }     
+    cout << endl;
+    cout << "Capacity after erase calls = " << vec.capacity() << endl;
+   //------------------------------------------
+   //Swap elements in Vector-------------------
+   swap(SS[0], SS[2]);
+   //------------------------------------------
 
 }
