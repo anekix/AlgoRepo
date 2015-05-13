@@ -126,8 +126,20 @@ main()
     cout << endl;
     cout << "Capacity after erase calls = " << vec.capacity() << endl;
    //------------------------------------------
+   
    //Swap elements in Vector-------------------
    swap(SS[0], SS[2]);
+   //------------------------------------------
+   
+   
+   //Shrink-to-fit in vector-------------------
+   vector <int> V;
+   V.push_back(1);
+   cout << "Current capacity of V = " << V.capacity() << endl;
+   V.reserve(20);
+   cout << "Current capacity of V = " << V.capacity() << endl;
+   V.shrink_to_fit();
+   cout << "Current capacity of V = " << V.capacity() << endl;
    //------------------------------------------
 
 }
