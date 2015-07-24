@@ -1,0 +1,28 @@
+/* Typedefs */
+typedef long long int ll;
+
+/* Scanning macros */
+#define s(n)	scanf("%d",&n)		// scan int
+#define sc(n)	scanf("%c",&n)		// scan char
+#define sl(n)	scanf("%lld",&n)	// scan long long int  
+#define sf(n)	scanf("%f",&n)		// scan float
+#define ss(n)	scanf("%s",&n)		// scan string
+#define su(n)	scanf("%llu",&n)	// scan unsigned long long int
+
+
+/* Printing macros */
+#define p(n)	printf("%d\n",n)	// print int
+#define pc(n)	printf("%c\n",n)	// print char
+#define pl(n)	printf("%lld\n",n)	// print long long int
+#define pf(n)	printf("%f\n",n)	// print float
+#define ps(n)	printf("%s\n",n)	// printf string
+#define pu(n)	printf("%llu\n",n)	// printf unsigned long long int
+
+
+/* Useful macros */
+#define wh(t)		while(t--)
+#define forall(i,a,b) 	for(i=a; i<b; i++)	  // 'for loop'
+#define fill(a,v)	memset(a, v, sizeof(a))   // fill 'a' with 'v'
+#define max(a,b)        (a > b) ? a : b		  //  find max
+#define min(a,b)        (a < b) ? a : b		  // find min
+#define checkbit(n,i)   (n >> i) & 1		  // 'i'th bit in 'n' is set or not
