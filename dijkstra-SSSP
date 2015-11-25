@@ -1,74 +1,72 @@
 
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
-typedef pair< int, int > pii;
-const int MAX = 3024;
-const int INF = 0x3f3f3f3f;
+
+#define MAX 100001
+#define INF 999
+#define pii pair< int, int >
+#define pb(x) push_back(x)
+
+struct comp {
+    bool operator() (const pii &a, const pii &b) {
+        return a.second > b.second;
+    }
+};
+
+priority_queue< pii, vector< pii >, comp > Q;
 vector< pii > G[MAX];
-int d[MAX];
-void dijkstra(int start) {
-int u, v, i, c, w;
-priority_queue< pii, vector< pii >, greater< pii > > Q;
-memset(d, 0x3f, sizeof d);
-Q.push(pii(0, start));
-d[start] = 0;
-while(!Q.empty()) {
-u = Q.top().second; // node
-c = Q.top().first; // node cost so far
-Q.pop(); // remove the top item.
-if(d[u] < c) continue;
-for(i = 0; i < G[u].size(); i++) {
-v = G[u][i].first; // node
-w = G[u][i].second; // edge weight
-if(d[v] > d[u] + w) {
-d[v] = d[u] + w;
-Q.push(pii(d[v], v));
-}
-}
-}
-}
+int D[MAX];
+bool F[MAX];
+
 int main() {
-int n, e, i, u, v, w, start;
+    int i, u, v, w, sz, nodes, edges, starting;
+
     int t;
     cin>>t;
     while(t--){
-scanf("%d %d", &n, &e) ;
-for(i = 1; i <= n; i++) G[i].clear();
-for(i = 0; i < e; i++) {
-scanf("%d %d %d", &u, &v, &w);
-G[u].push_back(pii(v, w));
-G[v].push_back(pii(u, w)); // only if bi-directional
-}
-scanf("%d", &start);
-dijkstra(start);
-for(i = 1; i <= n; i++) {
-if(i == start) continue;
-if(d[i] == INF) cout<<"-1 ";
-else cout<<d[i]<<" ";
-}
+
+        // create graph
+        scanf("%d %d", &nodes, &edges);
+        for(i=0; i<edges; i++) {
+            scanf("%d %d %d", &u, &v, &w);
+            G[u].pb(pii(v, w));
+            G[v].pb(pii(u, w)); // for undirected
+        }
+        scanf("%d", &starting);
+
+        // initialize distance vector
+        for(i=1; i<=nodes; i++) D[i] = INF;
+        D[starting] = 0;
+        Q.push(pii(starting, 0));
+
+        // dijkstra
+        while(!Q.empty()) {
+            u = Q.top().first;
+            Q.pop();
+            if(F[u]) continue;
+            sz = G[u].size();
+            for(i=0; i<sz; i++) {
+                v = G[u][i].first;
+                w = G[u][i].second;
+                if(!F[v] && D[u]+w < D[v]) {
+                    D[v] = D[u] + w;
+                    Q.push(pii(v, D[v]));
+                }
+            }
+            F[u] = 1; // done with u
+        }
+     // result
+    for(i=1; i<=nodes; i++){
+        if(i!=starting){
+        if(D[i]==999)printf("%d ",-1);
+        printf("%d ",D[i]);
+        }
+    }
+   
     }
 return 0;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //--------------------------------------------------------------------------
 
 #include <cstring>
