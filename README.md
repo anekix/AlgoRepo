@@ -1,2 +1,4 @@
-# various-algorithms-programs
-a collection of various program implementations
+Problem sets
+
+(Simple dijkstra)
+https://www.hackerrank.com/challenges/dijkstrashortreach
