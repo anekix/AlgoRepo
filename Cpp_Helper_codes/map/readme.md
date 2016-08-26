@@ -10,3 +10,12 @@ for(std::map<int, int>::const_iterator it = m.begin(); it != m.end(); it++)
 	//Do something
 }
 ```
+<b>2) iterating a map shorter version</b>
+```cpp
+std::map<int, int> items;
+for (auto & kvp : items)
+{
+    std::cout << kvp.first << std::endl;
+    std::cout << kvp.second << std::endl;
+}
+```
