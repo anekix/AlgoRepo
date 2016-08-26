@@ -70,7 +70,7 @@ if (num>0) {
     // not found  
 }
 ```
-check key exist or not, and return iterator:
+check key exist or not, and return iterator( in order to refence that key and use it for some purpose):
 ```cpp
 map<string,string>::iterator mi = m.find("f");  
 if(mi != m.end()) {  
