@@ -58,3 +58,25 @@ for (auto & kvp : items)
     std::cout << kvp.second << std::endl;
 }
 ```
+<b>4) Check if a key exists</b>
+
+check key exist or not, and return number of occurs(0/1 in map):
+```cpp
+map<string, string> m;
+int num = m.count("f");  
+if (num>0) {    
+    //found   
+} else {  
+    // not found  
+}
+```
+check key exist or not, and return iterator:
+```cpp
+map<string,string>::iterator mi = m.find("f");  
+if(mi != m.end()) {  
+    //found  
+    //do something to mi.  
+} else {  
+    // not found  
+}  
+```
