@@ -7,6 +7,7 @@
    SS.push_back("The number is 30");
 ```
 <b>2) Iterating elements of a vector</b>
+<br>
 Looping by index
    ```cpp
    for(int i=0; i < SS.size(); ii++)
@@ -14,6 +15,13 @@ Looping by index
       cout << SS[ii] << endl;
    }
    ```
+Abbreviated loop
+```cpp
+  for (auto& v : SS){
+        cout << v << endl;
+    }
+```
+
 Forward iterate using constant iterator
 ```cpp
   vector<string>::const_iterator cii;
@@ -22,7 +30,7 @@ Forward iterate using constant iterator
       cout << *cii << endl;
    }
 ```
-Reverse iterator 
+Reverse iterating 
 ```cpp
 vector<string>::reverse_iterator rii;
    for(rii=SS.rbegin(); rii!=SS.rend(); ++rii)
@@ -31,27 +39,17 @@ vector<string>::reverse_iterator rii;
    }
   ```
 
-<b>Get front and back of a vector</b>
+<b>3) Get front and back of a vector</b>
    ```cpp
    cout << SS.front() << endl;
    cout<< SS.back() <<endl;
    ```
+<b>4) Copy to another vector
 
-
-   
-   //------------------------------------------
-   cout << endl << "Sample Output:" << endl;
-
-   cout << SS.size() << endl;
-   cout << SS[2] << endl;
-
-
-   cout << SS.empty() << endl;
-   cout << SS.size() << endl;
-   //Copying Vector to another Vector----------
+   ```cpp
    vector <string> TT(SS);
    cout << TT.size() << endl;
-   //------------------------------------------
+   ```
 
    //pop from the vector-----------------------
    TT.pop_back();
@@ -62,11 +60,7 @@ vector<string>::reverse_iterator rii;
    }
    //------------------------------------------
 
-   //Abbreviated Loop--------------------------
-   for (auto& v : SS){
-        cout << v << endl;
-    }
-   //------------------------------------------
+ 
 
 
    //Assigning to vectors----------------------
