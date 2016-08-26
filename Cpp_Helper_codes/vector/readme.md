@@ -63,16 +63,20 @@ b.push_back(60); b.push_back(60);
 a.insert(a.end(), b.begin(), b.end());
 ```
 
+<b>7) destroy the last element of vector</b>
+```cpp
+std::vector<int> myvector;
+int sum (0);
+myvector.push_back (100);
+myvector.push_back (200);
+myvector.push_back (300);
 
-
-   //pop from the vector-----------------------
-   TT.pop_back();
-   cout<<"After Popping" << endl;
-   for(cii=TT.begin(); cii!=TT.end(); cii++)
-   {
-      cout << *cii << endl;
-   }
-   //------------------------------------------
+while (!myvector.empty())
+{
+ sum+=myvector.back();
+ myvector.pop_back();
+}
+```
 
  
 
