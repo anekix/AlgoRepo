@@ -80,3 +80,33 @@ if(mi != m.end()) {
     // not found  
 }  
 ```
+<b>5) deleting a key 
+```cpp
+#include <iostream>
+#include <map>
+
+int main (void) {
+    std::map<char,char> mymap;
+    std::map<char,char>::iterator it;
+
+    mymap['a'] = 'A'; mymap['b'] = 'B'; mymap['c'] = 'C';
+    mymap['d'] = 'D'; mymap['e'] = 'E'; mymap['f'] = 'F';
+    mymap['g'] = 'G'; mymap['h'] = 'H'; mymap['i'] = 'I';
+
+    it = mymap.find ('b');             // by iterator (b), leaves acdefghi.
+    mymap.erase (it);
+
+    it = mymap.find ('e');             // by range (e-i), leaves acd.
+    mymap.erase (it, mymap.end());
+
+    mymap.erase ('a');                 // by key (a), leaves cd.
+
+    mymap.erase ('z');                 // invalid key (none), leaves cd.
+
+    for (it = mymap.begin(); it != mymap.end(); it++)
+        std::cout << (*it).first << " => " << (*it).second << '\n';
+
+    return 0;
+}
+```
+
