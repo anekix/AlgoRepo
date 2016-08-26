@@ -50,6 +50,20 @@ vector<string>::reverse_iterator rii;
    vector <string> TT(SS);
    cout << TT.size() << endl;
    ```
+<b>5) Swap two elements of a vector</b>
+```cpp
+swap(SS[0], SS[2]);
+```
+<b>6) Apeend a vector to another vector
+```cpp
+vector<int> a;
+vector<int> b;
+a.push_back(20); a.push_back(40);
+b.push_back(60); b.push_back(60);
+a.insert(a.end(), b.begin(), b.end());
+```
+
+
 
    //pop from the vector-----------------------
    TT.pop_back();
@@ -117,10 +131,7 @@ vector<string>::reverse_iterator rii;
     cout << endl;
     cout << "Capacity after erase calls = " << vec.capacity() << endl;
    //------------------------------------------
-   
-   //Swap elements in Vector-------------------
-   swap(SS[0], SS[2]);
-   //------------------------------------------
+
    
    
    //Shrink-to-fit in vector-------------------
@@ -132,13 +143,6 @@ vector<string>::reverse_iterator rii;
    V.shrink_to_fit();
    cout << "Current capacity of V = " << V.capacity() << endl;
    //------------------------------------------
-   
-   //Appending two vectors together------------
-   vector<int> a;
-   vector<int> b;
-   a.push_back(20); a.push_back(40);
-   b.push_back(60); b.push_back(60);
-   a.insert(a.end(), b.begin(), b.end());
-   //------------------------------------------
+ 
 
 }
