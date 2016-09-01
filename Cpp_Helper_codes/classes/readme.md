@@ -207,5 +207,67 @@ int main()
 Note that because we did not alter the prototypes of any functions in our class’s public interface, our program that uses the class continues to work without any changes.
 
 
+<b>Constructors</b>
+When all members of a class (or struct) are public, we can initialize the class (or struct) directly using an initialization list or uniform initialization (in C++11):
 
+```cpp
+class Foo
+{
+public:
+    int m_x;
+    int m_y;
+};
+ 
+int main()
+{
+    Foo foo1 = { 4, 5 }; // initialization list
+    Foo foo2 { 6, 7 }; // uniform initialization (C++11)
+ 
+    return 0;
+}
+```
+But mostly we declare member variables as private then how do we initialize an object? lets probe about constructors.
+A constructor is a special kind of class member function that is automatically called when an object of that class is instantiated. Constructors are typically used to initialize member variables of the class to appropriate default or user-provided values, or to do any setup steps necessary for the class to be used (e.g. open a file or database).
 
+Unlike normal member functions, constructors have specific rules for how they must be named:
+
+Constructors should always have the same name as the class (with the same capitalization)
+Constructors have no return type (not even void)
+Note that constructors are only used for initialization. They can not be explicitly called.
+
+Default constructors
+
+A constructor that takes no parameters (or has parameters that all have default values) is called a default constructor. The default constructor is called if no user-provided initialization values are provided.
+
+Here is an example of a class that has a default constructor:
+```cpp
+#include <iostream>
+class Fraction
+{
+private:
+    int m_numerator;
+    int m_denominator;
+ 
+public:
+    Fraction() // default constructor
+    {
+         m_numerator = 0;
+         m_denominator = 1;
+    }
+ 
+    int getNumerator() { return m_numerator; }
+    int getDenominator() { return m_denominator; }
+    double getValue() { return static_cast<double>(m_numerator) / m_denominator; }
+};
+ 
+int main()
+{
+    Fraction frac; // Since no arguments, calls Fraction() default constructor
+    std::cout << frac.getNumerator() << "/" << frac.getDenominator() << '\n';
+ 
+    return 0;
+}
+```
+This class was designed to hold a fractional value as an integer numerator and denominator. We have defined a default constructor named Fraction (the same as the class).
+
+Because we’re instantiating an object of type Fraction with no arguments, the default constructor will be called immediately after memory is allocated for the object, and our object will be initialized.
