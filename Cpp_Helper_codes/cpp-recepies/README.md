@@ -28,11 +28,9 @@ std::string myString;
 std::stringstream convertThis;
 convertThis << myNumber;
 myString = convertThis.str();
-std::string newString = "I saw ";
-newString += myString;
-newString += " birds in the sky!";
-std::cout << newString << std::endl;
+std::cout << "I saw "<<myString<<" birds" << std::endl;
 return 0;
-
 }
+
+
 ```
