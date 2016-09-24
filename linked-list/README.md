@@ -1,6 +1,4 @@
-```cpp
 #include<iostream>
-
 class Node{
     
     public:
@@ -17,7 +15,6 @@ Node* create_node( int d){
     return tmp;
     
 }
-
 
 void traverse( Node* s){
     
@@ -63,6 +60,23 @@ void insert_end( Node* n){
     
 }
 
+void remove_front(){
+    if(head == NULL){
+        std::cout<<"list is empty!" ;  
+    }
+    else{
+        Node* temp_node = NULL;
+        temp_node = head;
+        head = head->next;
+        delete temp_node;
+        
+    }
+}
+
+    
+
+
+
 int main(){
  Node* node = NULL;
  head = NULL;
@@ -88,10 +102,12 @@ int main(){
  insert_end(node);
  
  traverse(head);
+ remove_front();
+ std::cout<<"\n";
+ traverse(head);
  
 
  
  return 0;
     
 }
-```
