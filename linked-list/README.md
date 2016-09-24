@@ -1,3 +1,4 @@
+```cpp
 #include<iostream>
 class Node{
     
@@ -105,9 +106,8 @@ int main(){
  remove_front();
  std::cout<<"\n";
  traverse(head);
- 
 
- 
  return 0;
     
 }
+```
