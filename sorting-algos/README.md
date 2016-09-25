@@ -69,3 +69,67 @@ void insertion_sort(std::vector<int>& array) {
     }
 }
 ```
+3) Heap sort
+
+```cpp
+#include<iostream>
+#include<algorithm>
+#include<vector>
+
+int max_heapify(std::vector<int>& v, int i,int len){
+
+    int l = 2*i;
+    int r = 2*i + 1;
+    int largest = 0;
+
+    if( (l < len) && (v[l] > v[i]) ){
+
+        largest = l;
+    }
+    else{
+        largest = i;
+    }
+
+    if ( (r<len) && (v[r] > v[largest]) ){
+        largest = r;
+    }
+    if ( largest != i){
+
+        std::swap(v[i], v[largest]);
+        max_heapify(v, largest,len);
+    }
+
+    return 0;
+}
+
+
+int build_max_heap(std::vector<int> &v){
+
+    for( int i = v.size()/2; i > 0; i--){
+        max_heapify(v, i,v.size());
+
+    }
+    return 0;
+
+}
+
+int heap_sort(std::vector<int>& v){
+    build_max_heap(v);
+    int length = v.size();
+    for( int i = length-1 ; i>=1; i--){
+        std::swap(v[1], v[i]);
+        length--;
+        max_heapify(v, 1,i);
+    }
+
+}
+
+int main(){
+std::vector<int> v = { 0  , 1, 2, 9, 8, 3, 4, 7, 6, 5};
+heap_sort(v);
+
+for(auto& e : v) std::cout<<e<<" ";
+
+return 0;   
+}
+```
