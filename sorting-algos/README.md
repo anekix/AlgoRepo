@@ -39,9 +39,7 @@ void insertion_sort(std::vector<int>& v)
 {
     for (int i = 1; i < v.size(); i++) {
         for (int j = i; j > 0 && v[j - 1] > v[j]; j--) {
-            int tmp = v[j];
-            v[j] = v[j - 1];
-            v[j - 1] = tmp;
+        std::swap(v[j], v[j-1]):
         }
     }
 }
