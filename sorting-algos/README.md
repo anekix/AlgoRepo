@@ -55,3 +55,17 @@ int main(){
 	
 }
 ```
+
+slighty better insertion sort
+```cpp
+void insertion_sort(std::vector<int>& array) {
+    for (auto it = array.begin(), end = array.end(); it != end; ++it) {
+        // 1. Search
+        auto const insertion_point =
+            std::upper_bound(array.begin(), it, *it);
+
+        // 2. Insert
+        std::rotate(insertion_point, it, it + 1);
+    }
+}
+```
