@@ -1,4 +1,4 @@
-1) Merge sort
+1) Bubble sort
 ```cpp
 #include<iostream>
 #include<vector>
