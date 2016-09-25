@@ -26,3 +26,34 @@ int main(){
     return 0;
 }
 ```
+
+
+2) Insertion sort
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+void insertion_sort(std::vector<int>& v)
+{
+    for (int i = 1; i < v.size(); i++) {
+        for (int j = i; j > 0 && v[j - 1] > v[j]; j--) {
+            int tmp = v[j];
+            v[j] = v[j - 1];
+            v[j - 1] = tmp;
+        }
+    }
+}
+
+int main(){
+	std::vector<int> v = { 1, 7, 9, 2, 3, 8, 6, 5, 4};
+	insertion_sort(v);
+	
+	for (auto &e : v) std::cout<<e<<" ";
+	
+	
+	return 0;
+	
+}
+```
