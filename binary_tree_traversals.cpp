@@ -1,15 +1,21 @@
+/*
+refrence : http://rosettacode.org/wiki/Tree_traversal#C.2B.2B
+
+         1
+        / \
+       /   \
+      /     \
+     2       3
+    / \     /
+   4   5   6
+  /       / \
+ 7       8   9
+ 
+ */
 #include<iostream>
 #include<memory>
 using namespace std;
-//         1
-//        / \
-//       /   \
-//      /     \
-//     2       3
-//    / \     /
-//   4   5   6
-//  /       / \
-// 7       8   9
+
 
 template <typename T>
 class TreeNode{
