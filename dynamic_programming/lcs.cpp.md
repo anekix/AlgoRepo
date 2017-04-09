@@ -35,3 +35,8 @@ cout<<r;
 	return 0;
 }
 ```
+				  lcs("AXYT", "AYZX")
+				 /                 \
+		  lcs("AXY", "AYZX")            lcs("AXYT", "AYZ")
+		      /            \                  /          \
+	lcs("AX", "AYZX") lcs("AXY", "AYZ")   lcs("AXY", "AYZ") lcs("AXYT", "AY")
